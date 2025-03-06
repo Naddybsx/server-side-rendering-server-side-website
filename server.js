@@ -25,9 +25,12 @@ app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+   // Hier doe ik een FETCH naar de API URL
+   const stekjesResponse = await fetch(apiUrl);
+   // Hier wordt de response omgezet naar JSON
+   const stekjesResponseJSON = await stekjesResponse.json();
+    // Hier render ik de index.liquid template, en geef ik de data(stekjes) van de API mee
+   response.render('index.liquid', {stekjes: stekjesResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
