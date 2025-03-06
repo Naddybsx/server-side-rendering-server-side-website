@@ -41,9 +41,16 @@ app.post('/', async function (request, response) {
   response.redirect(303, '/')
 })
 
-app.get('/stekjes', async function (request, response) {
-  // hier komt de detailpagina van de stekjes
-    response.render('stekjes.liquid')
+// Hier maak ik een route aan voor de detailpagina van een stekje, met de parameter :id
+app.get('/stekjes/:id', async function (request, response) {
+  // Hier haal ik het ID uit de URL
+  const stekjeId = request.params.id;
+  // Hier doe ik een FETCH naar de API URL, met het ID van het stekje
+  const stekjeResponse = await fetch(`${apiUrl}/${stekjeId}`);
+  // Hier wordt de response omgezet naar JSON
+  const stekjeData = await stekjeResponse.json();
+
+    response.render('stekjes.liquid', {stekje: stekjeData.data})
 });
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
