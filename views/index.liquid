@@ -2,5 +2,10 @@
 {% include 'partials/nav.liquid' %}
 
 <h1>Welkom bij Bieb in bloei</h1>
-
+{% for stekje in stekjes %}
+    <article>
+        <h3>{{stekje.naam}}</h3>
+        <img src="{{stekje.foto}}" alt="{{stekje.naam}}">
+    </article>
+{% endfor %}
 {% render 'partials/foot.liquid' %}
