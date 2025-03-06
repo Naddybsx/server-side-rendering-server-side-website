@@ -4,7 +4,8 @@
 <h1>Welkom bij Bieb in bloei</h1>
 {% for stekje in stekjes %}
     <article>
-        <h3>{{stekje.naam}}</h3>
+        <a href="/stekjes/{{stekje.id}}">
+            <h3>{{stekje.naam}}</h3></a>
         <img src="{{stekje.foto}}" alt="{{stekje.naam}}">
     </article>
 {% endfor %}
