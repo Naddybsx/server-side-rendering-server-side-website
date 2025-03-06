@@ -5,18 +5,8 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
-
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
-// Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
-
-// Controleer eventueel de data in je console
-// (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-// console.log(apiResponseJSON)
-
+// Hier definieer ik de API URL, waar ik data vandaan wil halen
+const apiUrl = "https://fdnd-agency.directus.app/items/bib_stekjes";
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
