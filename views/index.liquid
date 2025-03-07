@@ -6,7 +6,7 @@
     <article>
         <a href="/stekjes/{{stekje.id}}">
             <h3>{{stekje.naam}}</h3></a>
-        <img src="{{stekje.foto}}" alt="{{stekje.naam}}">
+        <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{stekje.naam}}">
     </article>
 {% endfor %}
 {% render 'partials/foot.liquid' %}
