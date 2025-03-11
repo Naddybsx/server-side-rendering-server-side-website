@@ -3,10 +3,14 @@
 
 <h1>Welkom bij Bieb in bloei</h1>
 {% for stekje in stekjes %}
-    <article>
+    <article class="">
         <a href="/stekjes/{{stekje.id}}">
             <h3>{{stekje.naam}}</h3></a>
         <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{stekje.naam}}">
     </article>
+{% endfor %}
+
+{% for afbeelding in afbeeldingen %}
+    <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt=" ">
 {% endfor %}
 {% render 'partials/foot.liquid' %}

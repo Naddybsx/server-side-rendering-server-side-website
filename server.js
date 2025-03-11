@@ -8,6 +8,8 @@ import { Liquid } from 'liquidjs';
 // Hier definieer ik de API URL, waar ik data vandaan wil halen
 const apiUrl = "https://fdnd-agency.directus.app/items/bib_stekjes";
 
+const afbeeldingenUrl = "https://fdnd-agency.directus.app/items/bib_afbeeldingen?filter={%20%22type%22:%20{%20%22_eq%22:%20%22stekjes%22%20}}";
+
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
@@ -25,12 +27,18 @@ app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
+  // ----------------- Hier haal ik de stekjes op -----------------
    // Hier doe ik een FETCH naar de API URL
    const stekjesResponse = await fetch(apiUrl);
    // Hier wordt de response omgezet naar JSON
    const stekjesResponseJSON = await stekjesResponse.json();
+  // ----------------- Hier haal ik de afbeeldingen op -----------------
+    // Hier doe ik een FETCH naar de API URL
+   const afbeeldingenResponse = await fetch(afbeeldingenUrl);
+    // Hier wordt de response omgezet naar JSON
+   const afbeeldingenResponseJSON = await afbeeldingenResponse.json();
     // Hier render ik de index.liquid template, en geef ik de data(stekjes) van de API mee
-   response.render('index.liquid', {stekjes: stekjesResponseJSON.data})
+   response.render('index.liquid', {stekjes: stekjesResponseJSON.data, afbeeldingen: afbeeldingenResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
