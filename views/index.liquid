@@ -1,16 +1,52 @@
 {% render 'partials/head.liquid' %}
 {% include 'partials/nav.liquid' %}
 
-<h1>Welkom bij Bieb in bloei</h1>
-{% for stekje in stekjes %}
-    <article class="">
-        <a href="/stekjes/{{stekje.id}}">
-            <h3>{{stekje.naam}}</h3></a>
-        <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{stekje.naam}}">
-    </article>
-{% endfor %}
+<header class="hero">
+<h1>Stekjes</h1>
+</header>
 
-{% for afbeelding in afbeeldingen %}
-    <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt=" ">
-{% endfor %}
+<main>   
+ <section class="stekjeskast-introductie">
+    <article>
+        <header>
+            <h2>Hoe werkt het?</h2>
+        </header>
+        <p>
+            Bij Buurtcampus Oost kun je de stekjeskast bezoeken om stekjes te ruilen. 
+            Je kunt ook op onze website inzien welke stekjes beschikbaar zijn. 
+            Dit is een geweldige manier voor plantenliefhebbers om met elkaar in contact te komen en planten te delen.
+        </p>
+    </article>
+
+    <section class="carousel-container" aria-label="Stekjeskast afbeeldingen">
+        <div class="carousel">
+            {% for afbeelding in afbeeldingen %}
+                <figure class="carousel-item">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt="Stekjeskast afbeelding">
+                </figure>
+            {% endfor %}
+        </div>
+    </section>
+ </section>
+
+ <header>
+    <h2>Beschikbare stekjes</h2>
+</header>
+ <section class="stekjes-overzicht">
+    {% for stekje in stekjes %}
+    <article class="stekje-item">
+        <a href="/stekjes/{{stekje.id}}">
+            <figure>
+                <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{stekje.naam}}">
+                <figcaption>
+                    <h3>{{stekje.naam}}</h3>
+                </figcaption>
+            </figure>
+        </a>
+    </article>
+    {% endfor %}
+</section>
+
+</main>
+
 {% render 'partials/foot.liquid' %}

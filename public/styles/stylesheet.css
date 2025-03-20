@@ -1,21 +1,25 @@
 /* Typography */
 
 @font-face {
-	font-family: 'Poppins-Black';
-	src: local('Poppins Black'), local('Poppins-Black'), url('/fonts/Poppins/Poppins-Black.ttf');
-}
-@font-face {
-	font-family: 'Poppins-Bold';
-	src: local('Poppins Bold'), local('Poppins-Bold'), url('/fonts/Poppins/Poppins-Bold.ttf');
-}
-@font-face {
-	font-family: 'Poppins-Medium';
-	src: local('Poppins Medium'), local('Poppins-Medium'), url('/fonts/Poppins/Poppins-Medium.ttf');
-}
-@font-face {
-	font-family: 'Poppins-Regular';
-	src: local('Poppins Regular'), local('Poppins-Regular'), url('/fonts/Poppins/Poppins-Regular.ttf');
-}
+    font-family: "Poppins-Black";
+    src: url(../fonts/Poppins-Black.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Poppins-Bold";
+    src: url(../fonts/Poppins-Bold.ttf) format("truetype"),
+      url(../fonts/Poppins-Bold.woff) format("woff");
+  }
+  
+  @font-face {
+    font-family: "Poppins-Medium";
+    src: url(../fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Poppins-Regular";
+    src: url(../fonts/Poppins-Regular.ttf) format("truetype");
+  }
 
 /* Main styling */
 
@@ -66,5 +70,9 @@ a{
     font-family: var(--link-font);
     color: var(--text-color-black);
     text-decoration: none;
+}
+img {
+    width: 100%;
+    height: auto;
 }
 
